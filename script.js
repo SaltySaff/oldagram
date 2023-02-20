@@ -28,5 +28,44 @@ const posts = [
     }
 ]
 
-// avatar of the user posting
-const postAvatar = document.querySelector(".post-avatar")
+const contentContainer = document.querySelector(".content-container")
+
+for (let i = 0; i < posts.length; i++) {
+    contentContainer.innerHTML += 
+        `<div class="content">
+        <section>
+            <div class="header-container">
+                <img class="user-avatar post-avatar" src="${posts[i].avatar}" alt="user's avatar">
+                <div>
+                    <h1 class="name">${posts[i].name}</h1>
+                    <p class="user-location">${posts[i].location}</p>
+                </div>
+            </div>
+        </section>
+        <figure>
+            <img class="post-img" src="${posts[i].post}" alt="image posted by user">
+        </figure>
+        <section>
+            <div class="footer-container">
+                <div class="buttons-container">
+                    <button class="like-btn">
+                        <img class="btn-icon" src="images/icon-heart.png" alt="">
+                    </button>
+                    <button class="comment-btn">
+                        <img class="btn-icon" src="images/icon-comment.png" alt="">
+                    </button>
+                    <button class="dm-btn">
+                        <img class="btn-icon" src="images/icon-dm.png" alt="">
+                    </button>
+                </div>
+                <h1>
+                    <span class=likes>${posts[i].likes}</span> likes
+                </h1>
+                <p>
+                    <span class="username">${posts[i].username}</span>
+                    <span class="comment">${posts[i].comment}</span>
+                </p>
+            </div>
+        </section>
+    </div>`
+}
